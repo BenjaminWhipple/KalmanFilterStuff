@@ -53,7 +53,7 @@ x0_extended = np.array([S0, I0, R0, beta_guess, gamma_guess])
 true_states=np.concatenate([solution.y, np.full((1,501),beta_guess),np.full((1,501),gamma_guess)],axis=0)
 print(true_states)
 
-# Adjust the covariance matrices to account for the uncertainties in beta and gamma
+# Noise matrices
 P_extended = np.eye(5) * 0.001
 P_extended[3, 3], P_extended[4, 4] = 0,0  # Higher uncertainty in beta and gamma estimates
 Q_extended = np.eye(5) * 0.01
